@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+    frontend:
+        image: nginx-frontend
+        build:
+            context: ./frontend
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./data/certs:/etc/letsencrypt
+            - ./data/certs_data:/var/www/certbot
+        network_mode: "host"
+
+    backend:
+        image: backend
+        build:
+            context: ./backend
+        ports:
+            - "5000:5000"
