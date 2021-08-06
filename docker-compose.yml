@@ -11,6 +11,7 @@ services:
         volumes:
             - ./data/certs:/etc/letsencrypt
             - ./data/certs_data:/var/www/certbot
+            - ./data/PDFs:/var/www/data
         network_mode: "host"
 
     backend:

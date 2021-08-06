@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/', (req, res) => {
-    res.send('Backend is communicating')
+    console.log('Backend is communicating')
 })
 
 const PORT = 5000

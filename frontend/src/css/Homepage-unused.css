@@ -1,0 +1,46 @@
+h1 {
+    margin: 1.5em auto 0.5em auto;
+    color: #202a25;
+    text-align: center
+}
+
+h4 {
+    max-width: 600px;
+    margin: 2em auto;
+    color: #202a25;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+
+p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: #202a25;
+}
+
+a {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #202a25
+}
+
+#navcontainer ul {
+    margin: 80px 0 100px 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center
+}
+
+#navlist li {
+    display: inline;
+    list-style-type: none;
+    padding: 0 15px;
+}
+
+[class^="icon"] {
+    height: 30px;
+    position: relative;
+    float: left;
+}
