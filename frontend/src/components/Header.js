@@ -1,31 +1,14 @@
 import React from 'react'
-import HeaderLinks from './HeaderLinks.js'
+import { NavLink } from 'react-router-dom'
 
-const Header = ({ page, setPage }) => {
-    const headerList = [
-        {
-            name: 'home',
-            text: 'HOME',
-            id: 1
-        },
-        {
-            name: 'blog',
-            text: 'BLOG',
-            id: 2
-        },
-        {
-            name: 'contact',
-            text: 'CONTACT',
-            id: 3
-        }
-    ]
+const Header = () => {
+
 
     return (
         <div class="header">
-            {headerList.map(header => <HeaderLinks key={header.id}
-                                                   header={header}
-                                                   setPage={setPage}
-                                                   page={page} /> )}
+            <NavLink to="/home" className="headerLink" activeClassName="activeHeaderLink">HOME</NavLink>
+            <NavLink to="/blog" className="headerLink" activeClassName="activeHeaderLink">BLOG</NavLink>
+            <NavLink to="/contact" className="headerLink" activeClassName="activeHeaderLink">CONTACT</NavLink>
         </div>
     )
 }

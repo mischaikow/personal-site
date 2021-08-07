@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const HeaderLinks = ({ header, setPage, page }) => {
     const pageChange = (event) => {
@@ -10,15 +11,20 @@ const HeaderLinks = ({ header, setPage, page }) => {
         })
     }
 
-    const buttonSubduedStyle = {
+    const headerButtonStyle = {
         backgroundColor: "Transparent",
         border: "none",
         padding: "0 1rem",
         fontFamily: "Lato, sans-serif",
+        fontWeight: "300",
+        textDecoration: "none",
         fontSize: "20px",
         color: "white"
     }
-    const buttonHighlightStyle = {
+    const activeHeaderButtonStyle = {
+        fontWeight: "700",
+    }
+/*    const buttonHighlightStyle = {
         backgroundColor: "Transparent",
         border: "none",
         padding: "0 1rem",
@@ -30,9 +36,15 @@ const HeaderLinks = ({ header, setPage, page }) => {
     const buttonStyle = page.page === header.name
         ? buttonHighlightStyle
         : buttonSubduedStyle
-
+*/
     return (
-        <button style={buttonStyle} onClick={pageChange}>{header.text}</button>
+        <NavLink
+            to={header.link}
+            style={headerButtonStyle}
+            activeStyle={activeHeaderButtonStyle}
+        >
+            {header.text}
+        </NavLink>
     )
 }
 

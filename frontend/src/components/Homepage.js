@@ -1,4 +1,4 @@
-
+import resume from '../pdf/Chris_Mischaikow_Resume.pdf'
 
 const Homepage = () => {
     const linkStyle = {
@@ -20,7 +20,7 @@ const Homepage = () => {
                     <a href="https://github.com/mischaikow/" title="GitHub" style={linkStyle}>GitHub</a>
                 </li>
                 <li>
-                    <a href="http://localhost:3000/data/Chris_Mischaikow_Resume.pdf" title="Resume" style={linkStyle}>Resume</a>
+                    <a href={resume} title="Resume" style={linkStyle} download>Resume</a>
                 </li>
             </ul>
             </div>

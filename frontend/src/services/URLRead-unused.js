@@ -10,4 +10,6 @@ const getPage = ({ location }) => {
     return ans;
 }
 
-export default { getPage };
+const answer = { getPage };
+
+export default answer;

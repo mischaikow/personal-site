@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:bold&subset=latin');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:regular&subset=latin');
-@import url('https://fonts.googleapis.com/css?family=Lato:regular,semi-bold,bold&subset=latin');
+@import url('https://fonts.googleapis.com/css?family=Lato:light,regular,bold&subset=latin');
 /* Deeply indebted to getskeleton.com */
 
 /*
@@ -160,11 +160,10 @@ a {
 button,
 input[type="submit"] {
   display: inline-block;
-  height: 38px;
   padding: 0 30px;
   color: #f7ebec;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   font-family: 'Open sans', sans-serif;
   line-height: 38px;
@@ -179,9 +178,34 @@ input[type="submit"] {
   box-sizing: border-box;
 }
 
+.headerLink {
+  padding: 0 1rem;
+  font-family: Leto, sans-serif;
+  font-weight: 300;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+}
+.activeHeaderLink {
+  font-weight: 700;
+}
+
 
 /*  FORMS
  ------------------------------- */
+form {
+  padding: 0;
+  margin: 10px auto 0 auto;
+  max-width: 560px;
+  width: 90%;
+}
+
+@media (min-width: 500px) {
+  form {
+    margin: 20px auto 0 auto;
+  }
+}
+
 input[type="email"],
 input[type="subject"],
 textarea,

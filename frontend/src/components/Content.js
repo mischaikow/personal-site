@@ -1,5 +1,8 @@
+import { Switch, Route } from "react-router-dom"
 import Homepage from './Homepage.js'
+import Blog from './Blog.js'
 import ContactForm from './ContactForm.js'
+import NotFound from './NotFound.js'
 
 const Content = ({ page }) => {
     const contentStyle = {
@@ -8,27 +11,16 @@ const Content = ({ page }) => {
         margin: "0 auto",
     }
 
-    if (page.page === 'home') {
-        return (
-            <div style={contentStyle}>
-                <Homepage />
-            </div>
-        )
-    } else if (page.page === 'blog') {
-        return (
-            <div style={contentStyle}>
-                <div class="container">
-                    <h2>Coming soon!</h2>
-                </div>
-            </div>
-        )
-    } else if (page.page === 'contact') {
-        return (
-            <div style={contentStyle}>
-                <ContactForm />
-            </div>
-        )
-    }
+    return (
+        <div style={contentStyle}>
+            <Switch>
+                <Route path="/blog" component={Blog} />
+                <Route path="/contact" component={ContactForm} />
+                <Route exact path={["/", "/home"]} component={Homepage} />
+                <Route component={NotFound} />
+            </Switch>
+        </div>
+    );
 }
 
 export default Content;

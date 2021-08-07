@@ -1,15 +1,10 @@
 
 
 const ContactForm = () => {
-    const formStyle = {
-        padding: '0',
-        margin: '0 auto',
-        maxWidth: '600px',
-        width: '90%',
-    }
+
 
     return (
-        <div style={formStyle}>
+        <div>
             <form>
                 <div>
                     <label for="emailInput">Your e-mail</label>
