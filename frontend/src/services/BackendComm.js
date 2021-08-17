@@ -13,11 +13,8 @@ const getAll = () => {
 }
 
 const sendContact = (message) => {
-    axios
-        .post(baseURL + '/submit/contact', message)
-        .then(response => {
-            console.log(response)
-        })
+    const request = axios.post(baseURL + '/submit/contact', message)
+    return request.then(response => response.data)
 }
 
 const exportedObject = {

@@ -1,17 +1,31 @@
 import { useState } from 'react'
 import ServerComm from '../services/BackendComm.js'
+import Notification from '../services/Notification.js'
 
-const ContactForm = () => {
+const ContactForm = ({ userAlert, setUserAlert }) => {
     const [ message, setMessage ] = useState({
         email: "",
         subject: "",
-        message: "",
+        text: "",
     })
     
     const sendMessage = (event) => {
         event.preventDefault()
-        ServerComm.sendContact(message)
-        console.log('message submitted', event.target)
+        ServerComm
+            .sendContact(message)
+            .then(response => {
+                setUserAlert(response)
+                setTimeout(() => {
+                    setUserAlert(null)
+                }, 2000)
+            })
+            .then(
+                setMessage({
+                    email: "",
+                    subject: "",
+                    text: "",
+                })
+            )
     }
 
     const handleStateChange = (event) => {
@@ -23,6 +37,7 @@ const ContactForm = () => {
 
     return (
         <div>
+            <Notification message={userAlert} />
             <form onSubmit={sendMessage}>
                 <div>
                     <label for="emailInput">Your e-mail</label>
@@ -44,7 +59,7 @@ const ContactForm = () => {
                     <label for="message">Message</label>
                     <textarea
                         class="u-full-width"
-                        name="message" placeholder="Message"
+                        name="text" placeholder="Message"
                         value={message.text} onChange={handleStateChange} >
                     </textarea>
                 </div>

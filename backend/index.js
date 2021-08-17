@@ -37,10 +37,12 @@ app.post('/api/submit/contact', (req, res) => {
 
     mailgun.messages().send(data, (err, body) => {
         if (err) {
-            console.log("got an error.");
+            console.log("ERROR");
             console.log(err);
+            res.json("So sorry, there was an error on our end!")
         } else {
             console.log(body);
+            res.json("Message Sent")
         }
     })
 })
