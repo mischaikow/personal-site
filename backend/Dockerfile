@@ -4,6 +4,7 @@ RUN apk add dumb-init
 ENV NODE_ENV production
 WORKDIR /usr/src/app
 COPY package*.json ./
+COPY ../data/.env ./
 
 RUN npm ci --only=production
 COPY --chown=node:node . .

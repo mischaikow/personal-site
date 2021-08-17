@@ -10,7 +10,7 @@ const Homepage = () => {
     return (
         <>
             <h1>Chris Mischaikow</h1>
-            <h4>Aspiring software developer with a background in data science and economics, entrepreneurial experience and 8 years of practice programming in professional environments.</h4>
+            <h4>Aspiring software developer with a background in data science and economics, entrepreneurial experience, and 8 years of practice programming in professional environments.</h4>
             <div id="navcontainer">
             <ul id="navlist">
                 <li>

@@ -12,8 +12,17 @@ const getAll = () => {
     return request.then(response => response.data)
 }
 
+const sendContact = (message) => {
+    axios
+        .post(baseURL + '/submit/contact', message)
+        .then(response => {
+            console.log(response)
+        })
+}
+
 const exportedObject = {
     getAll,
+    sendContact,
 }
 
 export default exportedObject;

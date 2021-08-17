@@ -1,9 +1,14 @@
 const express = require('express')
+const Mailgun = require('mailgun-js')
 const cors = require('cors')
+require('dotenv').config()
 
 const app = express()
+const api_key = process.env.API_KEY
+const domain = process.env.DOMAIN
 
 app.use(cors())
+app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send('Backend is up')
@@ -11,6 +16,33 @@ app.get('/', (req, res) => {
 
 app.get('/api/', (req, res) => {
     console.log('Backend is communicating')
+})
+
+app.post('/api/submit/contact', (req, res) => {
+    console.log(req)
+
+    const text =
+        "From: " + req.body.email + "\n" +
+        "Subject: " + req.body.subject + "\n\n" +
+        req.body.message;
+
+    const mailgun = new Mailgun({apiKey: api_key, domain: domain});
+
+    const data = {
+        from: 'mischaikow.com <postmaster@mischaikow.com>',
+        to: 'Chris Mischaikow <mischaik@gmail.com>',
+        subject: req.body.subject,
+        text: text,
+    }
+
+    mailgun.messages().send(data, (err, body) => {
+        if (err) {
+            console.log("got an error.");
+            console.log(err);
+        } else {
+            console.log(body);
+        }
+    })
 })
 
 const PORT = 5000
