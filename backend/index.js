@@ -24,7 +24,7 @@ app.post('/api/submit/contact', (req, res) => {
     const text =
         "From: " + req.body.email + "\n" +
         "Subject: " + req.body.subject + "\n\n" +
-        req.body.message;
+        req.body.text;
 
     const mailgun = new Mailgun({apiKey: api_key, domain: domain});
 
